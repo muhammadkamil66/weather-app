@@ -148,6 +148,12 @@ button, input:focus{
 
 
 }
+.error{
+    background: #323965;
+    color: white;
+    font-size: 3em;
+    margin-top: 5em;
+}
 
 @media only screen and (max-width: 1020px) {
     .display-sec div{
