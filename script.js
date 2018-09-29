@@ -1,38 +1,38 @@
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-function getWeatherIcon(weatherType) {
-    let icon;
-    // TODO: try using switch statement here instead of if/else
-    if (weatherType == "01d" || weatherType == "01n") {
-        icon = "wi-day-sunny";
-    }
-    else if (weatherType == "02d" || weatherType == "02n") {
-        icon = "wi-day-cloudy";
-    }
-    else if (weatherType == "03d" || weatherType == "03n") {
-        icon = "wi-cloud";
-    }
-    else if (weatherType == "04d" || weatherType == "04n") {
-        icon = "wi-cloudy";
-    }
-    else if (weatherType == "09d" || weatherType == "09n") {
-        icon = "wi-showers";
-    }
-    else if (weatherType == "10d" || weatherType == "10n") {
-        icon = "wi-day-rain";
-    }
-    else if (weatherType == "11d" || weatherType == "11n") {
-        icon = "wi-thunderstorm";
-    }
-    else if (weatherType == "13d" || weatherType == "13n") {
-        icon = "wi-snow";
-    }
-    else if (weatherType == "50d" || weatherType == "50n") {
-        icon = "wi-fog";
-    }
-    return icon;
-}
+// function getWeatherIcon(weatherType) {
+//     let icon;
+//     // TODO: try using switch statement here instead of if/else
+//     if (weatherType == "01d" || weatherType == "01n") {
+//         icon = "wi-day-sunny";
+//     }
+//     else if (weatherType == "02d" || weatherType == "02n") {
+//         icon = "wi-day-cloudy";
+//     }
+//     else if (weatherType == "03d" || weatherType == "03n") {
+//         icon = "wi-cloud";
+//     }
+//     else if (weatherType == "04d" || weatherType == "04n") {
+//         icon = "wi-cloudy";
+//     }
+//     else if (weatherType == "09d" || weatherType == "09n") {
+//         icon = "wi-showers";
+//     }
+//     else if (weatherType == "10d" || weatherType == "10n") {
+//         icon = "wi-day-rain";
+//     }
+//     else if (weatherType == "11d" || weatherType == "11n") {
+//         icon = "wi-thunderstorm";
+//     }
+//     else if (weatherType == "13d" || weatherType == "13n") {
+//         icon = "wi-snow";
+//     }
+//     else if (weatherType == "50d" || weatherType == "50n") {
+//         icon = "wi-fog";
+//     }
+//     return icon;
+// }
 
 function getWeather() {
 
@@ -50,7 +50,7 @@ function getWeather() {
             console.log(data);
 
             weatherType = data.weather[0].icon;
-            document.querySelector(".cloud").innerHTML = `<i class="wi ${getWeatherIcon(weatherType)}"></i>`;
+            document.querySelector(".cloud").innerHTML = `<img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png"/>`;
             document.querySelector(".city-name").innerHTML = `${data.name} , ${data.sys.country}`;
             document.querySelector(".temp > span").innerHTML = Math.round(data.main.temp) + "°C";
             document.querySelector(".description").innerHTML = data.weather[0].main;
@@ -74,7 +74,8 @@ function getWeather() {
                 document.querySelector(`.date${i}`).innerHTML = `${months[d.getMonth()]} ${d.getDate()}`;
                 document.querySelector(`.day${i} #temp > span`).innerHTML = Math.round(data.list[index].main.temp);
                 document.querySelector(`.day${i} #cloud`).innerHTML = (data.list[index].weather[0].description);
-                document.querySelector(`.cloud-${i}`).innerHTML = `<i class="wi ${getWeatherIcon(data.list[index].weather[0].icon)}"></i>`;
+                // document.querySelector(`.cloud-${i}`).innerHTML = `<i class="wi ${getWeatherIcon(data.list[index].weather[0].icon)}"></i>`;
+                document.querySelector(`.cloud-${i}`).innerHTML = `<img src="http://openweathermap.org/img/w/${data.list[index].weather[0].icon}.png"/>`;
             }
 
         },
