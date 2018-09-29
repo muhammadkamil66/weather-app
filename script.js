@@ -1,39 +1,19 @@
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-function getWeatherIcon(weatherType) {
-    let icon;
-    // TODO: try using switch statement here instead of if/else
-    if (weatherType == "01d" || weatherType == "01n") {
-        icon = "wi-day-sunny";
-    }
-    else if (weatherType == "02d" || weatherType == "02n") {
-        icon = "wi-day-cloudy";
-    }
-    else if (weatherType == "03d" || weatherType == "03n") {
-        icon = "wi-cloud";
-    }
-    else if (weatherType == "04d" || weatherType == "04n") {
-        icon = "wi-cloudy";
-    }
-    else if (weatherType == "09d" || weatherType == "09n") {
-        icon = "wi-showers";
-    }
-    else if (weatherType == "10d" || weatherType == "10n") {
-        icon = "wi-day-rain";
-    }
-    else if (weatherType == "11d" || weatherType == "11n") {
-        icon = "wi-thunderstorm";
-    }
-    else if (weatherType == "13d" || weatherType == "13n") {
-        icon = "wi-snow";
-    }
-    else if (weatherType == "50d" || weatherType == "50n") {
-        icon = "wi-fog";
-    }
-    return icon;
+let icons = {
+    "01":"wi-day-sunny",
+    "02":"wi-day-cloudy",
+    "03":"wi-cloud",
+    "04":"wi-cloudy",
+    "09":"wi-showers",
+    "10":"wi-day-rain",
+    "11":"wi-thunderstorm",
+    "13":"wi-snow",
+    "50":"wi-fog",
 }
-
+function getWeatherIcon(weatherType) {
+    return icons[weatherType.substring(0, weatherType.length - 1)]
+}
 function getWeather() {
 
 
