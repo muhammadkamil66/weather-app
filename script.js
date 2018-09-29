@@ -1,6 +1,6 @@
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-let icons = {
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const icons = {
     "01":"wi-day-sunny",
     "02":"wi-day-cloudy",
     "03":"wi-cloud",
@@ -15,7 +15,6 @@ function getWeatherIcon(weatherType) {
     return icons[weatherType.substring(0, weatherType.length - 1)]
 }
 function getWeather() {
-
 
     document.querySelector(".weather-info").style.display = "block";
     document.querySelector(".weather-comment").style.display = "none";
@@ -50,11 +49,16 @@ function getWeather() {
             for (let i = 1; i <= 5; i++) {
                 const index = 8 * (i - 1);
                 let d = new Date(data.list[index].dt * 1000);
-                document.querySelector(`.day${i} > p`).innerHTML = days[d.getDay()];
-                document.querySelector(`.date${i}`).innerHTML = `${months[d.getMonth()]} ${d.getDate()}`;
-                document.querySelector(`.day${i} #temp > span`).innerHTML = Math.round(data.list[index].main.temp);
-                document.querySelector(`.day${i} #cloud`).innerHTML = (data.list[index].weather[0].description);
-                document.querySelector(`.cloud-${i}`).innerHTML = `<i class="wi ${getWeatherIcon(data.list[index].weather[0].icon)}"></i>`;
+                document.querySelector(`.day> p`).innerHTML = days[d.getDay()];
+                document.querySelector(`.date`).innerHTML = `${months[d.getMonth()]} ${d.getDate()}`;
+                document.querySelector(`.day #temp > span`).innerHTML = Math.round(data.list[index].main.temp);
+                document.querySelector(`.day #cloud`).innerHTML = (data.list[index].weather[0].description);
+                document.querySelector(`.cloudy`).innerHTML = `<i class="wi ${getWeatherIcon(data.list[index].weather[0].icon)}"></i>`;
+                
+                const dayElement=document.querySelector('.day').cloneNode(true);
+                const displaySection = document.querySelector('.display-sec');
+                dayElement.style.display='block';
+                displaySection.appendChild(dayElement);
             }
 
         },
@@ -65,10 +69,6 @@ function getWeather() {
             document.querySelector(".weather-info").style.display = "none";
             document.querySelector(".main").style.display = "none";
             document.querySelector(".error").style.display = "block";
-
-
-
-
         }
 
     })

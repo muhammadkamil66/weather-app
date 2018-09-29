@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Weather App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/icon.ico" type="image/png"/>
+    <link rel="shortcut icon" href="images/icon.ico" type="image/png" />
     <link rel="stylesheet" type="text/css" href="weather-icons-master/css/weather-icons.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -20,14 +21,16 @@
         <div class="container">
 
             <form onsubmit="return mySubmitFunction()">
-                <input type="text" name="" placeholder="Search City" >
-                <button type="submit" onclick="getWeather()"> <i class="fas fa-search"></i></button>
+                <input type="text" name="" placeholder="Search City">
+                <button type="submit" onclick="getWeather()">
+                    <i class="fas fa-search"></i>
+                </button>
             </form>
 
 
             <div class="weather-comment">
-            <i class="fas fa-arrow-up arrow"></i>
-            <h1 class="info">Type Your City Name To Get Weather Information</h1>
+                <i class="fas fa-arrow-up arrow"></i>
+                <h1 class="info">Type Your City Name To Get Weather Information</h1>
             </div>
 
             <p class="error"></p>
@@ -35,52 +38,26 @@
 
             <div class="weather-info">
                 <h1 class="city-name"></h1>
-                <h3 class="temp"><span></span></h3>
+                <h3 class="temp">
+                    <span></span>
+                </h3>
                 <div class="cloud"></div>
                 <p class="description"></p>
-                <p class="temp-range"><span class="min"></span> <span class="max"></span></p>
+                <p class="temp-range">
+                    <span class="min"></span>
+                    <span class="max"></span>
+                </p>
             </div>
         </div>
 
         <div class="main">
             <section class="display-sec">
-                <div class="day1">
+                <div class="day" style="display:none">
                     <p class="day"></p>
-                    <p class="date date1"></p>
-                    <span class="cloudy cloud-1"></span>
-                    <h3 id="temp"><span></span>°C</h3>
-                    <p id="cloud"></p>
-                </div>
-
-                <div class="day2">
-                    <p class="day"></p>
-                    <p class="date date2"></p>
-                    <span class="cloudy cloud-2"></span>
-                    <h3 id="temp"><span></span>°C</h3>
-                    <p id="cloud"></p>
-                </div>
-
-                <div class="day3">
-                    <p class="day"></p>
-                    <p class="date date3"></p>
-                    <span class="cloudy cloud-3"></span>
-                    <h3 id="temp"><span></span>°C</h3>
-                    <p id="cloud"></p>
-                </div>
-
-                <div class="day4">
-                    <p class="day"></p>
-                    <p class="date date4"></p>
-                    <span class="cloudy cloud-4"></span>
-                    <h3 id="temp"><span></span>°C</h3>
-                    <p id="cloud"></p>
-                </div>
-
-                <div class="day5">
-                    <p class="day"></p>
-                    <p class="date date5"></p>
-                    <span class="cloudy cloud-5"></span>
-                    <h3 id="temp"><span></span>°C</h3>
+                    <p class="date"></p>
+                    <span class="cloudy"></span>
+                    <h3 id="temp">
+                        <span></span>°C</h3>
                     <p id="cloud"></p>
                 </div>
             </section>
